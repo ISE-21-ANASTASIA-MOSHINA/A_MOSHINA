@@ -9,8 +9,6 @@ namespace Laba2
 {
     public class AIRvehical : Vehicle
     {
-        private string info;
-
         public override int MaxSpeed
         {
             get
@@ -70,6 +68,7 @@ namespace Laba2
                 }
             }
         }
+
         public AIRvehical(int maxSpeed, int maxCountPassengers, double weight, Color color)
         {
             this.MaxSpeed = maxSpeed;
@@ -83,9 +82,20 @@ namespace Laba2
             startPosY = rand.Next(10, 200);
         }
 
-        public AIRvehical(string info)
+        public AIRvehical (string info)
         {
-            this.info = info;
+            string[] strs = info.Split(';');
+            if (strs.Length==4)
+            {
+                MaxSpeed = Convert.ToInt32(strs[0]);
+                MaxCountPassengers = Convert.ToInt32(strs[1]);
+                Weight = Convert.ToInt32(strs[2]);
+                ColorBody = Color.FromName(strs[3]);
+            }
+            this.countPassengers = 0;
+            Random rand = new Random();
+            startPosX = rand.Next(10, 200);
+            startPosY = rand.Next(10, 200);
         }
 
         public override void moveAIRvehical(Graphics g)
@@ -112,6 +122,12 @@ namespace Laba2
             g.DrawLine(penRed,  startPosX + 60, startPosY + 30, startPosX+130, startPosY + 30);
             g.DrawLine(penRed, startPosX + 129, startPosY + 30, startPosX + 200, startPosY + 25);
 
+        }
+
+        public override string getInfo()
+        {
+            return MaxSpeed + ";" + MaxCountPassengers + ";" +
+                Weight + ";" + ColorBody.Name;
         }
     }
 }
