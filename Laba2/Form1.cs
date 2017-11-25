@@ -12,109 +12,73 @@ namespace Laba2
 {
     public partial class Form1 : Form
     {
+        Planet planet;
 
-        Color color;
-        Color dopColor;
-        int maxSpeed;
-        int maxCountPass;
-        int weight;
-
-        private Tehnika inter;
         public Form1()
         {
             InitializeComponent();
-            color = Color.Red;
-            dopColor = Color.Yellow;
-            maxSpeed = 150;
-            maxCountPass = 4;
-            weight = 1500;
-            buttonSelectColor.BackColor = color;
-            buttonSelectDopColor.BackColor = dopColor;
+            planet = new Planet();
+            Draw();
         }
 
-        private void buttonSelectColor_Click(object sender, EventArgs e)
+        private void Draw()
         {
-            ColorDialog cd = new ColorDialog();
-            if (cd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                color = cd.Color;
-                buttonSelectColor.BackColor = color;
-            }
-        }
-
-        private void buttonSelectDopColor_Click(object sender, EventArgs e)
-        {
-            ColorDialog cd = new ColorDialog();
-            if (cd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                dopColor = cd.Color;
-                buttonSelectDopColor.BackColor = dopColor;
-            }
-        }
-
-        private bool checkFields()
-        {
-            if (!int.TryParse(textBoxMaxSpeed.Text, out maxSpeed))
-            {
-                return false;
-            }
-            if (!int.TryParse(textBoxMaxCountPassenget.Text, out maxCountPass))
-            {
-                return false;
-            }
-            if (!int.TryParse(textBoxWeight.Text, out weight))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        private void buttonSetAuto_Click(object sender, EventArgs e)
-        {
-            if (checkFields())
-            {
-                inter = new AIRvehical(maxSpeed, maxCountPass, weight, color);
-                Bitmap bmp = new Bitmap(pictureBoxDraw.Width, pictureBoxDraw.Height);
-                Graphics gr = Graphics.FromImage(bmp);
-                inter.drawAIRvehical(gr);
-                pictureBoxDraw.Image = bmp;
-            }
-        }
-
-        private void buttonSetUFO_Click(object sender, EventArgs e)
-        {
-            inter = new UFO(150, 4, 1000, Color.Black, true, true, true, Color.Yellow);
-            Bitmap bmp = new Bitmap(pictureBoxDraw.Width, pictureBoxDraw.Height);
+            Bitmap bmp = new Bitmap(pictureBoxParking.Width, pictureBoxParking.Height);
             Graphics gr = Graphics.FromImage(bmp);
-            inter.drawAIRvehical(gr);
-            pictureBoxDraw.Image = bmp;
+            planet.Draw(gr, pictureBoxParking.Width, pictureBoxParking.Height);
+            pictureBoxParking.Image = bmp;
         }
 
-        private void buttonMove_Click(object sender, EventArgs e)
+        private void buttonSetCar_Click(object sender, EventArgs e)
         {
-            if (inter != null)
+            ColorDialog dialog = new ColorDialog();
+            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                Bitmap bmp = new Bitmap(pictureBoxDraw.Width, pictureBoxDraw.Height);
-                Graphics gr = Graphics.FromImage(bmp);
-                inter.moveAIRvehical(gr);
-                pictureBoxDraw.Image = bmp;
+                var bedufo = new AIRvehical(100, 4, 1000, dialog.Color);
+                int place = planet.PutAirvehicle(bedufo);
+                Draw();
+                MessageBox.Show("Ваше место: " + (place + 1));
             }
         }
 
-    
 
-        private void buttonSetUFO_Click_1(object sender, EventArgs e)
+        
+
+        private void buttonSetSportCar_Click_1(object sender, EventArgs e)
         {
-            if (checkFields())
+            ColorDialog dialog = new ColorDialog();
+            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                inter = new UFO(maxSpeed, maxCountPass, weight, color, checkBoxFar.Checked, checkBoxAntenna.Checked, checkBoxHatch.Checked, dopColor);
-                Bitmap bmp = new Bitmap(pictureBoxDraw.Width, pictureBoxDraw.Height);
-                Graphics gr = Graphics.FromImage(bmp);
-                inter.drawAIRvehical(gr);
-                pictureBoxDraw.Image = bmp;
+                ColorDialog dialogDop = new ColorDialog();
+                if (dialogDop.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    var ufo = new UFO(150, 4, 1000, dialog.Color, true, true, true,dialogDop.Color);
+                    int place = planet.PutAirvehicle(ufo);
+                    Draw();
+                    MessageBox.Show("Вашеместо: " + (place + 1));
+                }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (maskedTextBox1.Text != "")
+            {
+                var ufo = planet.GetAirvehicle(Convert.ToInt32(maskedTextBox1.Text));
+
+                Bitmap bmp = new Bitmap(pictureBoxTakeCar.Width, pictureBoxTakeCar.Height);
+                Graphics gr = Graphics.FromImage(bmp);
+                ufo.setPosition(5, 5);
+                ufo.drawAIRvehical(gr);
+                pictureBoxTakeCar.Image = bmp;
+                Draw();
+            }
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
-       
-   }
+}
 

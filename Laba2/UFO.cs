@@ -28,6 +28,8 @@ namespace Laba2
         }
         protected override void drawBadUFO(Graphics g)
         {
+            Brush brush = new HatchBrush(HatchStyle.Divot, Color.DodgerBlue);
+            g.FillEllipse(brush, startPosX - 10, startPosY + 50, 200, 30);
             if (Far)
             {
                 Pen penDOP = new Pen(dopColor, 10);
@@ -38,8 +40,8 @@ namespace Laba2
             if (Antenna)
             {
                 Pen penGreen = new Pen(Color.Green, 10);
-                g.DrawLine(penGreen, startPosX + 95, startPosY , startPosX +110, startPosY -50);
-                g.DrawEllipse(penGreen, startPosX + 105, startPosY -55, 10, 10);
+                g.DrawLine(penGreen, startPosX + 95, startPosY , startPosX +110, startPosY -30);
+                g.DrawEllipse(penGreen, startPosX + 105, startPosY -35, 10, 10);
             }
             if(Hatch)
             {
@@ -51,9 +53,7 @@ namespace Laba2
             }
             base.drawBadUFO(g);
 
-            Brush brush = new HatchBrush(HatchStyle.Divot, Color.DodgerBlue);
-            g.FillEllipse(brush, startPosX, startPosY+90, 200, 50);
-
+          
         }
 
 

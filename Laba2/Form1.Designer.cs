@@ -1,16 +1,19 @@
-﻿namespace Laba2
+﻿using System.Drawing;
+using System.Windows.Forms;
+
+namespace Laba2
 {
-    partial class Form1
+    public partial class Form1 : Form
     {
-        /// <summary> 
-        /// Обязательная переменная конструктора. 
-        /// </summary> 
+        /// <summary>
+        /// Обязательная переменная конструктора.
+        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary> 
-        /// Освободить все используемые ресурсы. 
-        /// </summary> 
-        /// <param name="disposing">истинно, если управляемый ресурс должен быть удален; иначе ложно.</param> 
+        /// <summary>
+        /// Освободить все используемые ресурсы.
+        /// </summary>
+        /// <param name="disposing">истинно, если управляемый ресурс должен быть удален; иначе ложно.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,236 +23,136 @@
             base.Dispose(disposing);
         }
 
-        #region Код, автоматически созданный конструктором форм Windows 
+        #region Код, автоматически созданный конструктором форм Windows
 
-        /// <summary> 
+        /// <summary>
         /// Требуемый метод для поддержки конструктора — не изменяйте 
-        /// содержимое этого метода с помощью редактора кода. 
-        /// </summary> 
+        /// содержимое этого метода с помощью редактора кода.
+        /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBoxDraw = new System.Windows.Forms.PictureBox();
-            this.buttonSelectColor = new System.Windows.Forms.Button();
-            this.buttonSelectDopColor = new System.Windows.Forms.Button();
-            this.textBoxMaxSpeed = new System.Windows.Forms.TextBox();
-            this.textBoxMaxCountPassenget = new System.Windows.Forms.TextBox();
-            this.textBoxWeight = new System.Windows.Forms.TextBox();
-            this.checkBoxFar = new System.Windows.Forms.CheckBox();
-            this.checkBoxAntenna = new System.Windows.Forms.CheckBox();
-            this.checkBoxHatch = new System.Windows.Forms.CheckBox();
-            this.buttonSetAuto = new System.Windows.Forms.Button();
-            this.buttonSetBadUFO = new System.Windows.Forms.Button();
-            this.buttonSetUFO = new System.Windows.Forms.Button();
-            this.buttonMove = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.pictureBoxParking = new System.Windows.Forms.PictureBox();
+            this.buttonSetCar = new System.Windows.Forms.Button();
+            this.buttonSetSportCar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDraw)).BeginInit();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureBoxTakeCar = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxParking)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakeCar)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBoxDraw
+            // pictureBoxParking
             // 
-            this.pictureBoxDraw.InitialImage = null;
-            this.pictureBoxDraw.Location = new System.Drawing.Point(0, -1);
-            this.pictureBoxDraw.Name = "pictureBoxDraw";
-            this.pictureBoxDraw.Size = new System.Drawing.Size(847, 305);
-            this.pictureBoxDraw.TabIndex = 0;
-            this.pictureBoxDraw.TabStop = false;
+            this.pictureBoxParking.Location = new System.Drawing.Point(17, 10);
+            this.pictureBoxParking.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBoxParking.Name = "pictureBoxParking";
+            this.pictureBoxParking.Size = new System.Drawing.Size(1188, 715);
+            this.pictureBoxParking.TabIndex = 3;
+            this.pictureBoxParking.TabStop = false;
             // 
-            // buttonSelectColor
+            // buttonSetCar
             // 
-            this.buttonSelectColor.Location = new System.Drawing.Point(267, 394);
-            this.buttonSelectColor.Name = "buttonSelectColor";
-            this.buttonSelectColor.Size = new System.Drawing.Size(75, 23);
-            this.buttonSelectColor.TabIndex = 1;
-            this.buttonSelectColor.Text = "Цвет";
-            this.buttonSelectColor.UseVisualStyleBackColor = true;
-            this.buttonSelectColor.Click += new System.EventHandler(this.buttonSelectColor_Click);
+            this.buttonSetCar.Location = new System.Drawing.Point(1210, 12);
+            this.buttonSetCar.Name = "buttonSetCar";
+            this.buttonSetCar.Size = new System.Drawing.Size(102, 41);
+            this.buttonSetCar.TabIndex = 4;
+            this.buttonSetCar.Text = "ТАРЕЛКА";
+            this.buttonSetCar.UseVisualStyleBackColor = true;
+            this.buttonSetCar.Click += new System.EventHandler(this.buttonSetCar_Click);
             // 
-            // buttonSelectDopColor
+            // buttonSetSportCar
             // 
-            this.buttonSelectDopColor.Location = new System.Drawing.Point(487, 394);
-            this.buttonSelectDopColor.Name = "buttonSelectDopColor";
-            this.buttonSelectDopColor.Size = new System.Drawing.Size(75, 23);
-            this.buttonSelectDopColor.TabIndex = 2;
-            this.buttonSelectDopColor.Text = "Цвет";
-            this.buttonSelectDopColor.UseVisualStyleBackColor = true;
-            this.buttonSelectDopColor.Click += new System.EventHandler(this.buttonSelectDopColor_Click);
-            // 
-            // textBoxMaxSpeed
-            // 
-            this.textBoxMaxSpeed.Location = new System.Drawing.Point(95, 310);
-            this.textBoxMaxSpeed.Name = "textBoxMaxSpeed";
-            this.textBoxMaxSpeed.Size = new System.Drawing.Size(100, 20);
-            this.textBoxMaxSpeed.TabIndex = 3;
-            // 
-            // textBoxMaxCountPassenget
-            // 
-            this.textBoxMaxCountPassenget.Location = new System.Drawing.Point(159, 346);
-            this.textBoxMaxCountPassenget.Name = "textBoxMaxCountPassenget";
-            this.textBoxMaxCountPassenget.Size = new System.Drawing.Size(100, 20);
-            this.textBoxMaxCountPassenget.TabIndex = 4;
-            // 
-            // textBoxWeight
-            // 
-            this.textBoxWeight.Location = new System.Drawing.Point(45, 369);
-            this.textBoxWeight.Name = "textBoxWeight";
-            this.textBoxWeight.Size = new System.Drawing.Size(100, 20);
-            this.textBoxWeight.TabIndex = 5;
-            // 
-            // checkBoxFar
-            // 
-            this.checkBoxFar.AutoSize = true;
-            this.checkBoxFar.Location = new System.Drawing.Point(379, 313);
-            this.checkBoxFar.Name = "checkBoxFar";
-            this.checkBoxFar.Size = new System.Drawing.Size(57, 17);
-            this.checkBoxFar.TabIndex = 6;
-            this.checkBoxFar.Text = "Фары";
-            this.checkBoxFar.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxAntenna
-            // 
-            this.checkBoxAntenna.AutoSize = true;
-            this.checkBoxAntenna.Location = new System.Drawing.Point(379, 345);
-            this.checkBoxAntenna.Name = "checkBoxAntenna";
-            this.checkBoxAntenna.Size = new System.Drawing.Size(68, 17);
-            this.checkBoxAntenna.TabIndex = 7;
-            this.checkBoxAntenna.Text = "Антенна";
-            this.checkBoxAntenna.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxHatch
-            // 
-            this.checkBoxHatch.AutoSize = true;
-            this.checkBoxHatch.Location = new System.Drawing.Point(379, 376);
-            this.checkBoxHatch.Name = "checkBoxHatch";
-            this.checkBoxHatch.Size = new System.Drawing.Size(48, 17);
-            this.checkBoxHatch.TabIndex = 8;
-            this.checkBoxHatch.Text = "Люк";
-            this.checkBoxHatch.UseVisualStyleBackColor = true;
-            // 
-            // buttonSetAuto
-            // 
-            this.buttonSetAuto.Location = new System.Drawing.Point(882, 24);
-            this.buttonSetAuto.Name = "buttonSetAuto";
-            this.buttonSetAuto.Size = new System.Drawing.Size(127, 41);
-            this.buttonSetAuto.TabIndex = 9;
-            this.buttonSetAuto.Text = "летательный аппарат";
-            this.buttonSetAuto.UseVisualStyleBackColor = true;
-            this.buttonSetAuto.Click += new System.EventHandler(this.buttonSetAuto_Click);
-            // 
-            // buttonSetBadUFO
-            // 
-            this.buttonSetBadUFO.Location = new System.Drawing.Point(0, 0);
-            this.buttonSetBadUFO.Name = "buttonSetBadUFO";
-            this.buttonSetBadUFO.Size = new System.Drawing.Size(75, 23);
-            this.buttonSetBadUFO.TabIndex = 16;
-            // 
-            // buttonSetUFO
-            // 
-            this.buttonSetUFO.Location = new System.Drawing.Point(882, 87);
-            this.buttonSetUFO.Name = "buttonSetUFO";
-            this.buttonSetUFO.Size = new System.Drawing.Size(127, 38);
-            this.buttonSetUFO.TabIndex = 11;
-            this.buttonSetUFO.Text = "летающая тарелка";
-            this.buttonSetUFO.UseVisualStyleBackColor = true;
-            this.buttonSetUFO.Click += new System.EventHandler(this.buttonSetUFO_Click_1);
-            // 
-            // buttonMove
-            // 
-            this.buttonMove.Location = new System.Drawing.Point(882, 225);
-            this.buttonMove.Name = "buttonMove";
-            this.buttonMove.Size = new System.Drawing.Size(127, 43);
-            this.buttonMove.TabIndex = 12;
-            this.buttonMove.Text = "Движение";
-            this.buttonMove.UseVisualStyleBackColor = true;
-            this.buttonMove.Click += new System.EventHandler(this.buttonMove_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 313);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 13);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "Max скорость";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 349);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(128, 13);
-            this.label2.TabIndex = 14;
-            this.label2.Text = "Max кол-во пассажиров";
+            this.buttonSetSportCar.Location = new System.Drawing.Point(1210, 59);
+            this.buttonSetSportCar.Name = "buttonSetSportCar";
+            this.buttonSetSportCar.Size = new System.Drawing.Size(102, 56);
+            this.buttonSetSportCar.TabIndex = 5;
+            this.buttonSetSportCar.Text = "ПРИКОЛЬНАЯ ТАРЕЛКА";
+            this.buttonSetSportCar.UseVisualStyleBackColor = true;
+            this.buttonSetSportCar.Click += new System.EventHandler(this.buttonSetSportCar_Click_1);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 376);
+            this.label3.Location = new System.Drawing.Point(6, 38);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(26, 13);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "Вес";
+            this.label3.Size = new System.Drawing.Size(42, 13);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Место:";
             // 
-            // label4
+            // groupBox1
             // 
-            this.label4.Location = new System.Drawing.Point(0, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(100, 23);
-            this.label4.TabIndex = 0;
+            this.groupBox1.Controls.Add(this.pictureBoxTakeCar);
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.maskedTextBox1);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Location = new System.Drawing.Point(1213, 130);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(99, 190);
+            this.groupBox1.TabIndex = 9;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Улетаем";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // pictureBoxTakeCar
+            // 
+            this.pictureBoxTakeCar.Location = new System.Drawing.Point(0, 93);
+            this.pictureBoxTakeCar.Name = "pictureBoxTakeCar";
+            this.pictureBoxTakeCar.Size = new System.Drawing.Size(93, 91);
+            this.pictureBoxTakeCar.TabIndex = 11;
+            this.pictureBoxTakeCar.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(9, 64);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "Забрать";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Location = new System.Drawing.Point(45, 38);
+            this.maskedTextBox1.Mask = "00";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(48, 20);
+            this.maskedTextBox1.TabIndex = 9;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1038, 428);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.buttonMove);
-            this.Controls.Add(this.buttonSetUFO);
-            this.Controls.Add(this.buttonSetBadUFO);
-            this.Controls.Add(this.buttonSetAuto);
-            this.Controls.Add(this.checkBoxHatch);
-            this.Controls.Add(this.checkBoxAntenna);
-            this.Controls.Add(this.checkBoxFar);
-            this.Controls.Add(this.textBoxWeight);
-            this.Controls.Add(this.textBoxMaxCountPassenget);
-            this.Controls.Add(this.textBoxMaxSpeed);
-            this.Controls.Add(this.buttonSelectDopColor);
-            this.Controls.Add(this.buttonSelectColor);
-            this.Controls.Add(this.pictureBoxDraw);
+            this.ClientSize = new System.Drawing.Size(1324, 736);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.buttonSetSportCar);
+            this.Controls.Add(this.buttonSetCar);
+            this.Controls.Add(this.pictureBoxParking);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDraw)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxParking)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakeCar)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox pictureBoxDraw;
-        private System.Windows.Forms.Button buttonSelectColor;
-        private System.Windows.Forms.Button buttonSelectDopColor;
-        private System.Windows.Forms.TextBox textBoxMaxSpeed;
-        private System.Windows.Forms.TextBox textBoxMaxCountPassenget;
-        private System.Windows.Forms.TextBox textBoxWeight;
-        private System.Windows.Forms.CheckBox checkBoxFar;
-        private System.Windows.Forms.CheckBox checkBoxAntenna;
-        private System.Windows.Forms.CheckBox checkBoxHatch;
-        private System.Windows.Forms.Button buttonSetAuto;
-        private System.Windows.Forms.Button buttonSetBadUFO;
-        private System.Windows.Forms.Button buttonSetUFO;
-        private System.Windows.Forms.Button buttonMove;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PictureBox pictureBoxParking;
+        private System.Windows.Forms.Button buttonSetCar;
+        private System.Windows.Forms.Button buttonSetSportCar;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.PictureBox pictureBoxTakeCar;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
     }
-
 }
+
 
 

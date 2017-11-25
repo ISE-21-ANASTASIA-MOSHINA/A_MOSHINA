@@ -46,12 +46,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AIRvehical.cs" />
+    <Compile Include="ClassArray.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Planet.cs" />
     <Compile Include="UFO.cs" />
     <Compile Include="Tehnika.cs" />
     <Compile Include="Program.cs" />
