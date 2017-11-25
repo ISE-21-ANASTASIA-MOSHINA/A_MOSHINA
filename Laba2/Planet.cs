@@ -9,63 +9,83 @@ namespace Laba2
 {
     class Planet
     {
-        ClassArray<Tehnika> planet;
-
-        int countPlaces = 20;
-
+        List<ClassArray<Tehnika>> planetStages;
+        //ClassArray<Tehnika> planet;
+        int countPlaces = 16;
         int placeSizeWidth = 230;
-
         int placeSizeHeight = 150;
+        int currentLevel;
 
-        public Planet()
+        public int getCurrrenLevel { get { return currentLevel; } }
+        
+        public void LevelUp()
         {
-            planet = new ClassArray<Tehnika>(countPlaces, null);
+            if (currentLevel+1<planetStages.Count)
+            {
+                currentLevel++;
+            }
         }
-
+        // переход ниже
+        public void LevelDown()
+        {
+            if (currentLevel>0)
+            {
+                currentLevel--;
+            }
+        }
+        public Planet (int level)
+        {
+            planetStages = new List<ClassArray<Tehnika>>();
+            for (int i = 0; i < level; i++)
+            {
+                planetStages.Add(new ClassArray<Tehnika>(countPlaces, null));
+            }
+        }
+        // поставить тарелку на planet
         public int PutAirvehicle(Tehnika airvehicle)
         {
-            return planet + airvehicle;
+            return planetStages[currentLevel] + airvehicle;
         }
-
+        // забрать тарелку 
         public Tehnika GetAirvehicle (int ticket)
         {
-            return planet - ticket;
+            return planetStages[currentLevel] - ticket;
         }
 
-        public void Draw (Graphics g, int width, int height)
+        public void Draw (Graphics g)
         {
-            DrawPlanet(g);
+            DrawMarking(g);
             for (int i=0;i<countPlaces;i++)
             {
-                var airvehicle = planet.getObject(i);
+                var airvehicle = planetStages[currentLevel][i];
                 if (airvehicle!=null)
                 {
-                    airvehicle.setPosition(5 + i / 4 * placeSizeWidth + 4, i % 4 * placeSizeHeight + 15);
+                    airvehicle.setPosition(4 + i /4 * placeSizeWidth + 4, i % 4 * placeSizeHeight + 15);
                     airvehicle.drawAIRvehical(g);
                 }
             }
         }
 
-        private void DrawPlanet(Graphics g)
+        private void DrawMarking(Graphics g)
         {
             Pen pen = new Pen(Color.DeepPink, 3);
+            g.DrawString("L" + (currentLevel + 1), new Font("Arial", 30), new SolidBrush(Color.GreenYellow),
+                (countPlaces / 4) * placeSizeWidth-70, 440);
+            g.DrawRectangle(pen, 0, 0, (countPlaces / 5) * placeSizeWidth,600);
             for (int i = 0; i < countPlaces / 4; i++)
             {
-                for (int j = 0; j <6; ++j)
+                for (int j = 0; j <5; ++j)
                 {
                     g.DrawLine(pen, i * placeSizeWidth, j * placeSizeHeight,
                         i * placeSizeWidth + 110, j * placeSizeHeight);
-                    g.DrawLine(pen, i * placeSizeWidth, 0, i * placeSizeWidth, 600);
+                    if (j<4)
+                    {
+                        g.DrawString((i * 4 + j + 1).ToString(), new Font("Arial", 30),
+                          new SolidBrush (Color.GreenYellow), i*placeSizeWidth+30,j*placeSizeHeight+20 );
+                    }
                 }
+                g.DrawLine(pen, i * placeSizeWidth, 0, i * placeSizeWidth, 550);
             }
-            for (int i = 0; i < countPlaces; i++)
-            {
-                if (planet.getObject(i) != null)
-                {
-                    planet.getObject(i).setPosition(15 + (200 * (i / 5)), 55 + (80 * (i % 5)));
-                }
-            }
-        }
-        
+        }  
     }
 }

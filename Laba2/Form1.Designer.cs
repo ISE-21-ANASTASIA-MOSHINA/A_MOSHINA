@@ -39,6 +39,9 @@ namespace Laba2
             this.pictureBoxTakeCar = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.listBoxLevels = new System.Windows.Forms.ListBox();
+            this.buttonDown_Click = new System.Windows.Forms.Button();
+            this.buttonUp_Click = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxParking)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakeCar)).BeginInit();
@@ -49,13 +52,13 @@ namespace Laba2
             this.pictureBoxParking.Location = new System.Drawing.Point(17, 10);
             this.pictureBoxParking.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBoxParking.Name = "pictureBoxParking";
-            this.pictureBoxParking.Size = new System.Drawing.Size(1188, 715);
+            this.pictureBoxParking.Size = new System.Drawing.Size(992, 590);
             this.pictureBoxParking.TabIndex = 3;
             this.pictureBoxParking.TabStop = false;
             // 
             // buttonSetCar
             // 
-            this.buttonSetCar.Location = new System.Drawing.Point(1210, 12);
+            this.buttonSetCar.Location = new System.Drawing.Point(1052, 23);
             this.buttonSetCar.Name = "buttonSetCar";
             this.buttonSetCar.Size = new System.Drawing.Size(102, 41);
             this.buttonSetCar.TabIndex = 4;
@@ -65,7 +68,7 @@ namespace Laba2
             // 
             // buttonSetSportCar
             // 
-            this.buttonSetSportCar.Location = new System.Drawing.Point(1210, 59);
+            this.buttonSetSportCar.Location = new System.Drawing.Point(1052, 81);
             this.buttonSetSportCar.Name = "buttonSetSportCar";
             this.buttonSetSportCar.Size = new System.Drawing.Size(102, 56);
             this.buttonSetSportCar.TabIndex = 5;
@@ -88,7 +91,7 @@ namespace Laba2
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.maskedTextBox1);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Location = new System.Drawing.Point(1213, 130);
+            this.groupBox1.Location = new System.Drawing.Point(1055, 164);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(99, 190);
             this.groupBox1.TabIndex = 9;
@@ -122,11 +125,43 @@ namespace Laba2
             this.maskedTextBox1.Size = new System.Drawing.Size(48, 20);
             this.maskedTextBox1.TabIndex = 9;
             // 
+            // listBoxLevels
+            // 
+            this.listBoxLevels.FormattingEnabled = true;
+            this.listBoxLevels.Location = new System.Drawing.Point(1047, 360);
+            this.listBoxLevels.Name = "listBoxLevels";
+            this.listBoxLevels.Size = new System.Drawing.Size(176, 121);
+            this.listBoxLevels.TabIndex = 10;
+            this.listBoxLevels.SelectedIndexChanged += new System.EventHandler(this.listBoxLevels_SelectedIndexChanged);
+            // 
+            // buttonDown_Click
+            // 
+            this.buttonDown_Click.Location = new System.Drawing.Point(1042, 489);
+            this.buttonDown_Click.Name = "buttonDown_Click";
+            this.buttonDown_Click.Size = new System.Drawing.Size(85, 60);
+            this.buttonDown_Click.TabIndex = 11;
+            this.buttonDown_Click.Text = "<<<";
+            this.buttonDown_Click.UseVisualStyleBackColor = true;
+            this.buttonDown_Click.Click += new System.EventHandler(this.buttonDown_Click_Click);
+            // 
+            // buttonUp_Click
+            // 
+            this.buttonUp_Click.Location = new System.Drawing.Point(1133, 489);
+            this.buttonUp_Click.Name = "buttonUp_Click";
+            this.buttonUp_Click.Size = new System.Drawing.Size(90, 60);
+            this.buttonUp_Click.TabIndex = 12;
+            this.buttonUp_Click.Text = ">>>";
+            this.buttonUp_Click.UseVisualStyleBackColor = true;
+            this.buttonUp_Click.Click += new System.EventHandler(this.buttonUp_Click_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1324, 736);
+            this.ClientSize = new System.Drawing.Size(1235, 618);
+            this.Controls.Add(this.buttonUp_Click);
+            this.Controls.Add(this.buttonDown_Click);
+            this.Controls.Add(this.listBoxLevels);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonSetSportCar);
             this.Controls.Add(this.buttonSetCar);
@@ -134,6 +169,7 @@ namespace Laba2
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxParking)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -151,6 +187,9 @@ namespace Laba2
         private System.Windows.Forms.PictureBox pictureBoxTakeCar;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private ListBox listBoxLevels;
+        private Button buttonDown_Click;
+        private Button buttonUp_Click;
     }
 }
 
