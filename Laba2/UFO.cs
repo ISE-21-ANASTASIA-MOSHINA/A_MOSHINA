@@ -40,8 +40,8 @@ namespace Laba2
             if (Antenna)
             {
                 Pen penGreen = new Pen(Color.Green, 10);
-                g.DrawLine(penGreen, startPosX + 95, startPosY , startPosX +110, startPosY -30);
-                g.DrawEllipse(penGreen, startPosX + 105, startPosY -35, 10, 10);
+                g.DrawLine(penGreen, startPosX + 95, startPosY, startPosX + 110, startPosY - 30);
+                g.DrawEllipse(penGreen, startPosX + 105, startPosY - 35, 10, 10);
             }
             if(Hatch)
             {
