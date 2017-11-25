@@ -14,17 +14,32 @@ namespace Laba2
         private bool Antenna;
         private bool Hatch;
         private Color dopColor;
-        
-
 
         public UFO(int maxSpeed, int maxCountPassenger,  double weight, Color color,
-         bool Far,bool Antenna, bool Hatch,Color dopColor) :
+        bool Far,bool Antenna, bool Hatch,Color dopColor) :
         base(maxSpeed, maxCountPassenger, weight, color)
         {
             this.Far = Far;
             this.Antenna = Antenna;
             this.Hatch = Hatch;
             this.dopColor = dopColor;
+        }
+
+        public UFO(string info):base (info)
+        {
+            string[] strs = info.Split(';');
+            if (strs.Length==8)
+            {
+                MaxSpeed = Convert.ToInt32(strs[0]);
+                MaxCountPassengers = Convert.ToInt32(strs[1]);
+                Weight = Convert.ToInt32(strs[2]);
+                ColorBody = Color.FromName(strs[3]);
+                Far = Convert.ToBoolean(strs[4]);
+                Antenna = Convert.ToBoolean(strs[5]);
+                Hatch = Convert.ToBoolean(strs[6]);
+                dopColor = Color.FromName(strs[7]);
+
+            }
         }
         protected override void drawBadUFO(Graphics g)
         {
@@ -55,7 +70,10 @@ namespace Laba2
 
           
         }
-
+        public void setDopColor (Color color)
+        {
+            dopColor = color;
+        }
 
     }
 }

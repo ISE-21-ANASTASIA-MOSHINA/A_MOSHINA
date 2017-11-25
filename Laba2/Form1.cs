@@ -14,6 +14,8 @@ namespace Laba2
     {
         Planet planet;
 
+        Form2 form;
+
         public Form1()
         {
             InitializeComponent();
@@ -58,15 +60,37 @@ namespace Laba2
 
         private void buttonSetCar_Click(object sender, EventArgs e)
         {
-            ColorDialog dialog = new ColorDialog();
-            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            /* ColorDialog dialog = new ColorDialog();
+             if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+             {
+                 var bedufo = new AIRvehical(100, 4, 1000, dialog.Color);
+                 int place = planet.PutAirvehicle(bedufo);
+                 Draw();
+                 MessageBox.Show("Ваше место: " + (place));
+             }*/
+            form = new Form2();
+            form.AddEvent(AddVehicle);// навязывается к форме событие (срабатывает) 
+            form.Show();
+        }
+
+        private void AddVehicle(Tehnika vehicle)
+        {
+            if (vehicle != null)
             {
-                var bedufo = new AIRvehical(100, 4, 1000, dialog.Color);
-                int place = planet.PutAirvehicle(bedufo);
-                Draw();
-                MessageBox.Show("Ваше место: " + (place));
+                int place = planet.PutAirvehicle(vehicle);
+                if (place > -1)
+                {
+                    Draw();
+                    MessageBox.Show("Ваше место: " + place);
+                }
+                else
+                {
+                    MessageBox.Show("Машину не удалось поставить");
+                }
             }
         }
+
+
 
         private void buttonSetSportCar_Click_1(object sender, EventArgs e)
         {
@@ -130,7 +154,10 @@ namespace Laba2
 
         }
 
-       
+        private void pictureBoxParking_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

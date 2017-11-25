@@ -17,5 +17,6 @@ namespace Laba2
 
         void loadPassenger(int count);
         int getPassenger();
+        void setMainColor(Color color);
     }
 }
