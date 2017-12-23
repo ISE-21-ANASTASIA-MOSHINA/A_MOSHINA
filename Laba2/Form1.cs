@@ -59,8 +59,7 @@ namespace Laba2
         }
 
         private void buttonSetCar_Click(object sender, EventArgs e)
-        {
-          
+         {
             form = new Form2();
             form.AddEvent(AddVehicle);// навязывается к форме событие (срабатывает) 
             form.Show();
