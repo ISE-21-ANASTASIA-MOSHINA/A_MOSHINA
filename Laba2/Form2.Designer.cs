@@ -150,7 +150,6 @@
             this.panelWhite.Name = "panelWhite";
             this.panelWhite.Size = new System.Drawing.Size(31, 30);
             this.panelWhite.TabIndex = 4;
-            this.panelWhite.Paint += new System.Windows.Forms.PaintEventHandler(this.panelWhite_Paint);
             // 
             // panelYellow
             // 

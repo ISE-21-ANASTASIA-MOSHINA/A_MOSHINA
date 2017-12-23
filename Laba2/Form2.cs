@@ -12,6 +12,7 @@ namespace Laba2
 {
     public partial class Form2 : Form
     {
+        
         Vehicle vehicle = null;
         public Vehicle GetVehicle { get { return vehicle; } }
         private void DrawVehicle()
@@ -192,11 +193,6 @@ namespace Laba2
                 e.Effect = DragDropEffects.Copy;
             else
                 e.Effect = DragDropEffects.None;
-        }
-
-        private void panelWhite_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

@@ -59,8 +59,7 @@ namespace Laba2
         }
 
         private void buttonSetCar_Click(object sender, EventArgs e)
-        {
-           
+         {
             form = new Form2();
             form.AddEvent(AddVehicle);// навязывается к форме событие (срабатывает) 
             form.Show();
@@ -74,7 +73,7 @@ namespace Laba2
                 if (place > -1)
                 {
                     Draw();
-                    MessageBox.Show("Ваше место: " + place);
+                    MessageBox.Show("Ваше место: " + (1+place));
                 }
                 else
                 {
@@ -96,7 +95,7 @@ namespace Laba2
                     var ufo = new UFO(150, 4, 1000, dialog.Color, true, true, true,dialogDop.Color);
                     int place = planet.PutAirvehicle(ufo);
                     Draw();
-                    MessageBox.Show("Вашеместо: " +place);
+                    MessageBox.Show("Ваше место: " +(1+place));
                 }
             }
         }
@@ -108,6 +107,7 @@ namespace Laba2
                 string level = listBoxLevels.Items[listBoxLevels.SelectedIndex].ToString();
                 if (maskedTextBox1.Text != "")
                 {
+                    
                     Tehnika ufo = planet.GetAirvehicle(Convert.ToInt32(maskedTextBox1.Text));
                     if (ufo != null)
                     {//если удалось забрать, то отрисовываем
@@ -118,9 +118,9 @@ namespace Laba2
                         pictureBoxTakeCar.Image = bmp;
                         Draw();
                     }
-                    else
+                   else
                     {//иначесообщаемобэтом
-                        MessageBox.Show("Извинте, на этом месте нет машины");
+                            MessageBox.Show("Извинте, на этом месте нет машины");
                     }
 
                 }
@@ -148,6 +148,59 @@ namespace Laba2
         }
 
         private void pictureBoxParking_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialog1.ShowDialog()==System.Windows.Forms.DialogResult.OK)
+            {
+                if (planet.SaveData(saveFileDialog1.FileName))
+                {
+                    MessageBox.Show("Сохранение прошло успешно", "",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Не сохранилось", "",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+        }
+
+        private void загрузитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                if (planet.LoadData(openFileDialog1.FileName))
+                {
+                    MessageBox.Show("Загрузили", "",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+
+                    MessageBox.Show("Не загрузили", "",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                Draw();
+            }
+
+        }
+
+        private void файлToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void saveFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
 
         }
