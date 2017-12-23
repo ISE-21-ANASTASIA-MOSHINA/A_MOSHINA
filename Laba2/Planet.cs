@@ -52,18 +52,16 @@ namespace Laba2
         {
             return planetStages[currentLevel] - ticket;
         }
-
+        // отрисовка
         public void Draw (Graphics g)
         {
             DrawMarking(g);
-            for (int i=0;i<countPlaces;i++)
+            int i = 0;
+            foreach (var airvehicle in planetStages[currentLevel])
             {
-                var airvehicle = planetStages[currentLevel][i];
-                if (airvehicle!=null)
-                {
-                    airvehicle.setPosition(4 + i /4 * placeSizeWidth + 4, i % 4 * placeSizeHeight + 15);
-                    airvehicle.drawAIRvehical(g);
-                }
+                airvehicle.setPosition(4 + i /4 * placeSizeWidth + 4, i % 4 * placeSizeHeight + 15);
+                airvehicle.drawAIRvehical(g);
+                i++;
             }
         }
 
@@ -202,6 +200,10 @@ namespace Laba2
             }
             return true;
         }
-        
+        //сортировка 
+        public void Sort()
+        {
+            planetStages.Sort();
+        }
     }
 }

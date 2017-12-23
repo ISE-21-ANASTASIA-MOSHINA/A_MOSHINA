@@ -65,6 +65,7 @@
     <Compile Include="ParkingIndexOutOfRangeException.cs" />
     <Compile Include="ParkingOverflowException.cs" />
     <Compile Include="Planet.cs" />
+    <Compile Include="PlanetAlreadyHaveException.cs" />
     <Compile Include="UFO.cs" />
     <Compile Include="Tehnika.cs" />
     <Compile Include="Program.cs" />

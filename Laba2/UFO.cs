@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Laba2
 {
-    public class UFO : AIRvehical
+    public class UFO : AIRvehical, IComparable<UFO>, IEquatable<UFO>
     {
         private bool Far;
         private bool Antenna;
@@ -79,6 +79,82 @@ namespace Laba2
         {
             return MaxSpeed + ";" + MaxCountPassengers + ";" + Weight + ";" + ColorBody.Name + ";" +
                 Far + ";" + Antenna + ";" + Hatch + ";" + dopColor.Name;
+        }
+
+        //Чтобы не дублировать проверки параметров, унаследованных от базового класса, 
+        //вызовем там функции CompareTo и Equals от базового класса. 
+           // И добавим проверки по параметрам дочернего класса, которые будут проходит, если параметры базового класса идентичны. 
+        public int CompareTo(UFO other)
+        {
+            var res = (this is AIRvehical).CompareTo(other is AIRvehical);
+            if(res != 0)
+            {
+                return res;
+            }
+            if(Hatch != other.Hatch)
+            {
+                return Hatch.CompareTo(other.Hatch);
+            }
+            if(Antenna != other.Antenna)
+            {
+                return Antenna.CompareTo(other.Antenna);
+            }
+            if(Far != other.Far)
+            {
+                return Far.CompareTo(other.Far);
+            }
+            if(dopColor != other.dopColor)
+            {
+                return dopColor.Name.CompareTo(other.dopColor.Name);
+            }
+            return 0;
+        }
+
+        public bool Equals(UFO other)
+        {
+            var res = (this is AIRvehical).Equals(this is AIRvehical);
+            if (!res)
+            {
+                return res;
+            }
+            if (Hatch != other.Hatch)
+            {
+                return false;
+            }
+            if (Antenna != other.Antenna)
+            {
+                return false;
+            }
+            if (Far != other.Far)
+            {
+                return false;
+            }
+            if (dopColor != other.dopColor)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if(obj == null)
+            {
+                return false;
+            }
+            UFO ufoObj = obj as UFO;
+            if (ufoObj == null)
+            {
+                return false;
+            }
+            else
+            {
+                return Equals(ufoObj);
+            }
+        }
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
     }
 }
