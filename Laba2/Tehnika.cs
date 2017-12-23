@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Laba2
 {
-    public interface Tehnika
+    public interface ITehnika
     {
         void moveAIRvehical(Graphics g);
 
