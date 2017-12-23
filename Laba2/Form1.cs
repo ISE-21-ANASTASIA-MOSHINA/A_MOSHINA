@@ -60,14 +60,7 @@ namespace Laba2
 
         private void buttonSetCar_Click(object sender, EventArgs e)
         {
-            /* ColorDialog dialog = new ColorDialog();
-             if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-             {
-                 var bedufo = new AIRvehical(100, 4, 1000, dialog.Color);
-                 int place = planet.PutAirvehicle(bedufo);
-                 Draw();
-                 MessageBox.Show("Ваше место: " + (place));
-             }*/
+           
             form = new Form2();
             form.AddEvent(AddVehicle);// навязывается к форме событие (срабатывает) 
             form.Show();
