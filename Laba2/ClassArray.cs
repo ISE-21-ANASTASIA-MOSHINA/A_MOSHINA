@@ -24,7 +24,7 @@ namespace Laba2
         {
             if (p.places.Count==p.maxCount)
             {
-                return -1;
+                throw new ParkingOverflowException();
             }
             for (int i=0;i<p.places.Count;i++)
             {
@@ -46,7 +46,7 @@ namespace Laba2
                 p.places.Remove(index);
                 return airvehical;
             }
-            return p.defaultValue;
+            throw new ParkingIndexOutOfRangeException();
         }
 
         private bool CheckFreePlace (int index)

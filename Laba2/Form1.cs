@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using NLog;
 namespace Laba2
 {
     public partial class Form1 : Form
@@ -15,10 +15,12 @@ namespace Laba2
         Planet planet;
 
         Form2 form;
+        private Logger log;
 
         public Form1()
         {
             InitializeComponent();
+            log = LogManager.GetCurrentClassLogger(); 
             planet = new Planet(5);
             //ЗАПОЛНЕНИЕ LISTBOX
             for (int i=1;i<6;i++)
@@ -46,6 +48,7 @@ namespace Laba2
         {
             planet.LevelDown();
             listBoxLevels.SelectedIndex = planet.getCurrrenLevel;
+            log.Info("Переход на новый уровень. Текущий уровень:" + planet.getCurrrenLevel);
             Draw();
         }
 
@@ -54,6 +57,7 @@ namespace Laba2
         {
             planet.LevelUp();
             listBoxLevels.SelectedIndex = planet.getCurrrenLevel;
+            log.Info("Переход на  предыдущий уровень. Текущий уровень:" + planet.getCurrrenLevel);
             Draw();
 
         }
@@ -69,17 +73,26 @@ namespace Laba2
         private void AddVehicle(Tehnika vehicle)
         {
             if (vehicle != null)
-            {
-                int place = planet.PutAirvehicle(vehicle);
-                if (place > -1)
-                {
-                    Draw();
-                    MessageBox.Show("Ваше место: " + (1+place));
-                }
-                else
-                {
-                    MessageBox.Show("Машину не удалось поставить");
-                }
+            { 
+                    try
+                    {
+                        int place = planet.PutAirvehicle(vehicle);
+                        Draw();
+                    log.Info("Добавление на место: " + place);
+                    MessageBox.Show("Ваше место: " + (1 + place));
+                    }
+                    catch (ParkingIndexOutOfRangeException ex)
+                    {
+                        MessageBox.Show(ex.Message, "Ошибка  переполнения",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Общая ошибка",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                
+               
             }
         }
 
@@ -108,21 +121,29 @@ namespace Laba2
                 string level = listBoxLevels.Items[listBoxLevels.SelectedIndex].ToString();
                 if (maskedTextBox1.Text != "")
                 {
-                    
-                    Tehnika ufo = planet.GetAirvehicle(Convert.ToInt32(maskedTextBox1.Text));
-                    if (ufo != null)
-                    {//если удалось забрать, то отрисовываем
+                    try
+                    {
+                        Tehnika ufo = planet.GetAirvehicle(Convert.ToInt32(maskedTextBox1.Text));
+
                         Bitmap bmp = new Bitmap(pictureBoxTakeCar.Width, pictureBoxTakeCar.Height);
                         Graphics gr = Graphics.FromImage(bmp);
                         ufo.setPosition(5, 5);
                         ufo.drawAIRvehical(gr);
                         pictureBoxTakeCar.Image = bmp;
+                        log.Info("Забрали с места: " + Convert.ToInt32(maskedTextBox1.Text));
                         Draw();
                     }
-                   else
-                    {//иначесообщаемобэтом
-                            MessageBox.Show("Извинте, на этом месте нет машины");
+                    catch (ParkingIndexOutOfRangeException ex)
+                    {
+                        MessageBox.Show(ex.Message,"Неверный номер",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Общая ошибка",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                   
 
                 }
             }
