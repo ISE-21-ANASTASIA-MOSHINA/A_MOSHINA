@@ -24,6 +24,7 @@ namespace Laba2
                 vehicle.setPosition(5,5);
                 vehicle.drawAIRvehical(gr);
                 pictureBox1.Image = btm;
+                
             }
         }
 
