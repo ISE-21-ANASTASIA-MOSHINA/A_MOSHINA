@@ -9,6 +9,8 @@ namespace Laba2
 {
     public class AIRvehical : Vehicle
     {
+        private string info;
+
         public override int MaxSpeed
         {
             get
@@ -80,6 +82,12 @@ namespace Laba2
             startPosX = rand.Next(10, 200);
             startPosY = rand.Next(10, 200);
         }
+
+        public AIRvehical(string info)
+        {
+            this.info = info;
+        }
+
         public override void moveAIRvehical(Graphics g)
         {
             startPosX +=

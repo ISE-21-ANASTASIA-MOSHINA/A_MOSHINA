@@ -55,6 +55,7 @@ namespace Laba2
             this.pictureBoxParking.Size = new System.Drawing.Size(992, 590);
             this.pictureBoxParking.TabIndex = 3;
             this.pictureBoxParking.TabStop = false;
+            this.pictureBoxParking.Click += new System.EventHandler(this.pictureBoxParking_Click);
             // 
             // buttonSetCar
             // 
