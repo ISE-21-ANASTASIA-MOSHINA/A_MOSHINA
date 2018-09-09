@@ -21,7 +21,7 @@ namespace Laba2
         public void setPosition(int x, int y)
         {
             startPosX = x;
-            startPosY = y;
+            startPosY = y+30;
         }
         public void loadPassenger(int count)
         {
